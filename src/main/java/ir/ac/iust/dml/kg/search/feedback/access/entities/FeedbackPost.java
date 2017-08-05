@@ -20,6 +20,8 @@ public class FeedbackPost {
   private Long sendTime;
   @TextIndexed
   private String text;
+  @Indexed
+  private String query;
   @TextIndexed
   private String note;
   @Indexed
@@ -64,6 +66,14 @@ public class FeedbackPost {
 
   public void setSendTime(Long sendTime) {
     this.sendTime = sendTime;
+  }
+
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
   }
 
   public String getText() {

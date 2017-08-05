@@ -14,6 +14,7 @@ public class FeedbackData {
   @NotNull
   @Size(min = 10)
   private String text;
+  private String query;
 
   public String getName() {
     return name;
@@ -37,5 +38,13 @@ public class FeedbackData {
 
   public void setText(String text) {
     this.text = text;
+  }
+
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
   }
 }

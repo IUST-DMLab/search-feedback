@@ -34,11 +34,12 @@ public class FeedbackRestServices {
   @ResponseBody
   public Page<FeedbackPost> search(@RequestParam(defaultValue = "0") int page,
                                    @RequestParam(defaultValue = "10") int pageSize,
-                                   @RequestParam(required = false) String keyword,
+                                   @RequestParam(required = false) String textKeyword,
+                                   @RequestParam(required = false) String queryKeyword,
                                    @RequestParam(required = false) Long minSendDate,
                                    @RequestParam(required = false) Long maxSendDate,
                                    @RequestParam(required = false) Boolean approved,
                                    @RequestParam(required = false) Boolean done) throws Exception {
-    return logic.search(page, pageSize, keyword, minSendDate, maxSendDate, approved, done);
+    return logic.search(page, pageSize, textKeyword, queryKeyword, minSendDate, maxSendDate, approved, done);
   }
 }

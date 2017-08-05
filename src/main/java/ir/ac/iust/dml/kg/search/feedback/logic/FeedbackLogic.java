@@ -21,6 +21,7 @@ public class FeedbackLogic {
     post.setEmail(data.getEmail());
     post.setSendTime(System.currentTimeMillis());
     post.setText(data.getText());
+    post.setQuery(data.getQuery());
     post.setApproved(false);
     post.setDone(false);
     return repository.save(post);
@@ -36,7 +37,8 @@ public class FeedbackLogic {
     return true;
   }
 
-  public Page<FeedbackPost> search(int page, int pageSize, String keyword, Long minSendDate, Long maxSendDate, Boolean approved, Boolean done) {
-    return repository.search(page, pageSize, keyword, minSendDate, maxSendDate, approved, done);
+  public Page<FeedbackPost> search(int page, int pageSize, String textKeyword, String queryKeyword,
+                                   Long minSendDate, Long maxSendDate, Boolean approved, Boolean done) {
+    return repository.search(page, pageSize, textKeyword, queryKeyword, minSendDate, maxSendDate, approved, done);
   }
 }

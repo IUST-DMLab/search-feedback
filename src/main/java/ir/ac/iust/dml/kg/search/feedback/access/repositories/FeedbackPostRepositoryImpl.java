@@ -19,10 +19,13 @@ public class FeedbackPostRepositoryImpl implements FeedbackPostRepositoryCustom 
   private MongoTemplate op;
 
   @Override
-  public Page<FeedbackPost> search(int page, int pageSize, String keyword, Long minSendDate, Long maxSendDate,
+  public Page<FeedbackPost> search(int page, int pageSize,
+                                   String textKeyword, String queryKeyword,
+                                   Long minSendDate, Long maxSendDate,
                                    Boolean approved, Boolean done) {
     Query query = new Query();
-    if (keyword != null) query.addCriteria(new TextCriteria().matching(keyword));
+    if (textKeyword != null) query.addCriteria(new TextCriteria().matching(textKeyword));
+    if (queryKeyword != null) query.addCriteria(Criteria.where("query").regex(queryKeyword));
     if (minSendDate != null && maxSendDate != null)
       query.addCriteria(Criteria.where("sendTime").gte(minSendDate).lte(maxSendDate));
     if (minSendDate != null && maxSendDate == null) query.addCriteria(Criteria.where("sendTime").gte(minSendDate));

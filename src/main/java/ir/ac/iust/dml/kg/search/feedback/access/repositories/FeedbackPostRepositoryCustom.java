@@ -5,6 +5,6 @@ import org.springframework.data.domain.Page;
 
 public interface FeedbackPostRepositoryCustom {
 
-  Page<FeedbackPost> search(int page, int pageSize, String keyword, Long minSendDate, Long maxSendDate,
-                            Boolean approved, Boolean done);
+  Page<FeedbackPost> search(int page, int pageSize, String textKeyword, String queryKeyword,
+                            Long minSendDate, Long maxSendDate, Boolean approved, Boolean done);
 }
