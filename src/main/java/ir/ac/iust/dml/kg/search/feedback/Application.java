@@ -1,5 +1,6 @@
-package ir.ac.iust.dml.kg.search.feedback.web;
+package ir.ac.iust.dml.kg.search.feedback;
 
+import ir.ac.iust.dml.kg.search.feedback.web.Jackson2ObjectMapperPrettier;
 import ir.ac.iust.dml.kg.search.feedback.web.filter.FilterRegistrationConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
